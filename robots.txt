@@ -1,0 +1,4 @@
+Sitemap: https://zalagaonicazagreb.hr/sitemap.xml
+User-agent: *
+Disallow: /cgi-bin/
+

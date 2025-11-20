@@ -1,0 +1,44 @@
+site_name: Zalagaonica Zagreb
+site_url: https://zalagaonicazagreb.hr/
+allow_crawling: yes
+allow_ai_training: yes
+sitemap: https://zalagaonicazagreb.hr/sitemap.xml
+language: hr-HR
+
+business:
+  type: pawn_shop
+  name: Zalagaonica Zagreb
+  areas_served: [Zagreb, Hrvatska]
+  services:
+    - zalagaonica zagreb
+    - zalog mobitela zagreb
+    - otkup mobitela zagreb
+    - otkup laptopa zagreb
+    - otkup tehnike zagreb
+    - brza pozajmica uz zalog
+    - procjena vrijednosti predmeta
+  opening_hours: "Pon–Sub 09:00–20:00"
+  payment_methods: [gotovina, uplata]
+  contact:
+    phone: +385919577009
+    email: info@zalagaonicazagreb.hr
+    address: Arena Zagreb, Hrvatska
+
+content_structure:
+  - section: pocetna
+    url: https://zalagaonicazagreb.hr/
+    keywords: [zalagaonica zagreb, otkup zlata zagreb, otkup mobitela zagreb]
+    description: Glavna stranica s informacijama o uslugama zalaganja i otkupa.
+  - section: usluge
+    url: https://zalagaonicazagreb.hr/usluge
+    description: Detaljan opis usluga zalaganja, otkupa, procjene vrijednosti predmeta.
+  - section: kontakt
+    url: https://zalagaonicazagreb.hr/kontakt
+    description: Kontakt podaci, adresa i radno vrijeme.
+
+ai_preferred_summary:
+  short: "Zalagaonica Arena Zagreb – otkup mobitela, laptopa, tehnike i svega ostaloga uz brzu isplatu."
+  long: "Zalagaonica Arena Zagreb pruža usluge otkupa mobitela, otkupa laptopa, otkupa tehnike i svega ostalog, uz brzu isplatu i profesionalnu procjenu vrijednosti. Djelujemo kod Arene Zagreb, uz povjerljiv i siguran proces."
+
+license:
+  content_usage: "AI modeli smiju koristiti sadržaj za indeksiranje i za treniranje."
