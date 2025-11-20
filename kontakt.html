@@ -1,387 +1,149 @@
 <!DOCTYPE html>
 <html lang="hr">
-  <head> 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Zalagaonica Arena Zagreb - Kontakt" />
-    <meta property="og:description" content="Zalagaonica Arena u Zagrebu - brzi zajmovi, otkup i prodaja." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://zalagaonicazagreb.hr/kontakt.html" />
-    <meta property="og:image" content="https://zalagaonicazagreb.hr/assets/og-image.jpg" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon-Bj5BWS3V.svg" />
+  <title>Kontakt | Zalagaonica Arena Zagreb</title>
+  <meta name="description" content="Kontaktirajte Zalagaonicu Arena u Zagrebu. Brza procjena, diskrecija i isplata odmah. Nazovite ili ispunite online obrazac." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__content">
+        <a href="/" class="logo">Zalagaonica <span class="logo__highlight">Arena</span></a>
+        <nav class="nav">
+          <button class="nav-toggle" aria-label="Otvori navigaciju">
+            <span class="nav-toggle__line"></span>
+            <span class="nav-toggle__line"></span>
+            <span class="nav-toggle__line"></span>
+          </button>
+          <ul class="nav__list nav__list--mobile">
+            <li class="nav__item"><a href="/" class="nav__link">Početna</a></li>
+            <li class="nav__item"><a href="/usluge.html" class="nav__link">Usluge zalagaonice</a></li>
+            <li class="nav__item"><a href="/kontakt.html" class="nav__link nav__link--active">Kontakt</a></li>
+            <li class="nav__item nav__item--cta"><a class="btn btn-primary" href="#procjena">Besplatna procjena</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Zalagaonica Arena Zagreb" />
-    <meta name="twitter:description" content="Najbrži zalog i otkup u Zagrebu - posjetite nas u Areni." />
-    <meta name="twitter:image" content="https://zalagaonicazagreb.hr/assets/og-image.jpg" />
-    
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon-Bj5BWS3V.svg" />
-    <link rel="canonical" href="https://zalagaonicazagreb.hr/kontakt.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Zalagaonica Arena Zagreb - Kontaktirajte nas za procjenu, zajam ili više informacija. Besplatna procjena istog dana." />
-    <title>Kontakt | Zalagaonica Arena Zagreb</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/main-1AGj8Mvg.js" defer></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-CT8cPPYy.css">
-    <script src="/assets/email.min.js" defer></script>
-    <script>emailjs.init("83NbuRhmZxR_bc18Z");</script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17523602012"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'AW-17523602012');
-    </script>
-
-  </head>
-  <body>
-    <header class="header" id="header">
+  <main>
+    <section class="hero" style="min-height:60vh;">
+      <img src="/assets/hero.jpg" alt="Kontakt Zalagaonica Arena" loading="lazy">
       <div class="container">
-        <div class="header__content">
-          <a href="/" class="logo">
-            <span class="logo__text">Zalagaonica <span class="logo__highlight">Arena</span></span>
-          </a>
-          <nav class="nav">
-            <button class="nav-toggle" aria-label="Otvori navigaciju">
-              <span class="nav-toggle__line"></span>
-              <span class="nav-toggle__line"></span>
-              <span class="nav-toggle__line"></span>
+        <div class="hero__content reveal">
+          <p class="section-eyebrow">Kontakt</p>
+          <h1 class="hero__title">Tu smo za brzu i diskretnu procjenu</h1>
+          <p class="hero__subtitle">Nazovite nas ili ispunite obrazac – odgovaramo u najkraćem roku tijekom radnog vremena.</p>
+          <div class="hero__cta">
+            <a href="tel:+385919577009" class="btn btn-primary">Nazovite odmah</a>
+            <a href="#procjena" class="hero__secondary">Pošaljite upit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="info">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Detalji</p>
+          <h2 class="section-title">Posjetite nas ili nas kontaktirajte</h2>
+          <p class="section-subtitle">Informacije o lokaciji, radnom vremenu i kanalima komunikacije.</p>
+        </div>
+        <div class="grid contact-grid">
+          <div class="card contact-card reveal"><div class="icon-badge">📍</div><strong>Lokacija</strong><p>Vice Vukova 6, Arena Zagreb</p></div>
+          <div class="card contact-card reveal"><div class="icon-badge">📞</div><strong>Telefon</strong><p><a href="tel:+385919577009">+385 91 9577 009</a></p></div>
+          <div class="card contact-card reveal"><div class="icon-badge">✉️</div><strong>E-mail</strong><p><a href="mailto:info@zalagaonicazagreb.hr">info@zalagaonicazagreb.hr</a></p></div>
+          <div class="card contact-card reveal"><div class="icon-badge">⏱️</div><strong>Radno vrijeme</strong><p>Pon – Sub: 9:00 – 20:00</p></div>
+        </div>
+        <div class="card reveal" style="margin-top:24px;" id="map"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="procjena">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Online upit</p>
+          <h2 class="section-title">Pošaljite nam osnovne podatke</h2>
+          <p class="section-subtitle">Što detaljnije opišete predmet, to brže možemo dati najbolju ponudu.</p>
+        </div>
+        <div class="card reveal">
+          <form class="form" id="contactForm">
+            <input type="text" name="_honey" style="display:none" aria-hidden="true">
+            <div class="grid" style="grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
+              <div class="form-group">
+                <label for="name">Ime i prezime*</label>
+                <input type="text" id="name" name="name" required placeholder="Vaše ime">
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail*</label>
+                <input type="email" id="email" name="email" required placeholder="ime@domena.com">
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="091 000 0000">
+              </div>
+              <div class="form-group">
+                <label for="inquiry-type">Vrsta upita*</label>
+                <select id="inquiry-type" name="inquiry-type" required>
+                  <option value="loan">Zalog</option>
+                  <option value="estimate">Otkup</option>
+                  <option value="general">Općenito pitanje</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group" id="device-details-group">
+              <label for="device-details">Detalji o uređaju</label>
+              <textarea id="device-details" name="device-details" placeholder="Model, stanje, dodatna oprema..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="message">Poruka*</label>
+              <textarea id="message" name="message" required placeholder="Kako možemo pomoći?"></textarea>
+            </div>
+            <label class="tag"><input type="checkbox" id="privacy-policy" name="privacy-policy" required style="accent-color: var(--color-primary);"> Suglasan/suglasna sam s obradom podataka</label>
+            <button type="submit" class="btn btn-primary" style="width:max-content;">
+              <span class="btn-text">Pošalji upit</span>
+              <span class="btn-loading" style="display:none;">Slanje...</span>
             </button>
-            <ul class="nav__list">
-              <li class="nav__item"><a href="/" class="nav__link">Početna</a></li>
-              <li class="nav__item"><a href="/usluge.html" class="nav__link">Usluge zalagaonice</a></li>
-              <li class="nav__item"><a href="/kontakt.html" class="nav__link nav__link--active">Kontakt</a></li>
-              <li class="nav__item nav__item--cta">
-                <a href="/kontakt.html#procjena" class="btn btn--primary">Besplatna procjena</a>
-              </li>
-            </ul>
+            <div id="formSuccess" class="section-subtitle" style="display:none; color: var(--color-accent-dark); font-weight:700;">Hvala! Vaš upit je zaprimljen, javit ćemo se u najkraćem roku.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="grid footer-grid">
+        <div>
+          <h4>Zalagaonica Arena</h4>
+          <p>Brzi zajmovi uz zalog i otkup vrijednih predmeta u srcu Novog Zagreba.</p>
+        </div>
+        <div>
+          <h4>Navigacija</h4>
+          <nav>
+            <a href="/">Početna</a>
+            <a href="/usluge.html">Usluge</a>
+            <a href="/kontakt.html">Kontakt</a>
           </nav>
         </div>
-      </div>
-    </header>
-
-    <main>
-      <!-- Page Header -->
-      <section class="page-header">
-        <div class="container">
-          <h1 class="page-header__title">Kontaktirajte nas</h1>
-          <p class="page-header__description">Tu smo za sva vaša pitanja, zalog, otkup, procjene i zahtjeve</p>
-        </div>
-      </section>
-      
-      <!-- Contact Info Section -->
-      <section class="contact-info">
-        <div class="container">
-          <div class="contact-grid">
-            <div class="contact-card">
-              <div class="contact-card__icon">
-                <img src="data:image/svg+xml,%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Transformed%20by:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='64px'%20height='64px'%20viewBox='-2.4%20-2.4%2028.80%2028.80'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='SVGRepo_bgCarrier'%20stroke-width='0'/%3e%3cg%20id='SVGRepo_tracerCarrier'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke='%23CCCCCC'%20stroke-width='0.048'/%3e%3cg%20id='SVGRepo_iconCarrier'%3e%3cpath%20d='M12%2021C15.5%2017.4%2019%2014.1764%2019%2010.2C19%206.22355%2015.866%203%2012%203C8.13401%203%205%206.22355%205%2010.2C5%2014.1764%208.5%2017.4%2012%2021Z'%20stroke='%23FF5757'%20stroke-width='2.4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M12%2012C13.1046%2012%2014%2011.1046%2014%2010C14%208.89543%2013.1046%208%2012%208C10.8954%208%2010%208.89543%2010%2010C10%2011.1046%2010.8954%2012%2012%2012Z'%20stroke='%23FF5757'%20stroke-width='2.4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3c/svg%3e" alt="Ikona lokacije" />
-              </div>
-              <h3 class="contact-card__title">Lokacija</h3>
-              <p class="contact-card__text">Lanište, uz Arenu<br>10000 Zagreb<br>Hrvatska</p>
-            </div>
-            
-            <div class="contact-card">
-              <div class="contact-card__icon">
-                <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0,0,256,256'%20width='50px'%20height='50px'%20fill-rule='nonzero'%3e%3cg%20fill='%23ff5757'%20fill-rule='nonzero'%20stroke='none'%20stroke-width='1'%20stroke-linecap='butt'%20stroke-linejoin='miter'%20stroke-miterlimit='10'%20stroke-dasharray=''%20stroke-dashoffset='0'%20font-family='none'%20font-weight='none'%20font-size='none'%20text-anchor='none'%20style='mix-blend-mode:%20normal'%3e%3cg%20transform='scale(5.12,5.12)'%3e%3cpath%20d='M14,3.99023c-5.51133,0%20-10,4.48867%20-10,10v22c0,5.51133%204.48867,10%2010,10h22c5.51133,0%2010,-4.48867%2010,-10v-22c0,-5.51133%20-4.48867,-10%20-10,-10zM18.00586,12.0332c0.628,0.027%201.20473,0.38083%201.55273,0.92383c0.396,0.618%201.01055,1.57712%201.81055,2.82813c0.73,1.141%200.78091,2.61469%200.12891,3.80469l-1.46484,2.08398c-0.396,0.564%20-0.47498,1.28588%20-0.20898,1.92188c0.414,0.99%201.21658,2.5115%202.64258,3.9375c1.426,1.426%202.9475,2.22858%203.9375,2.64258c0.636,0.266%201.35788,0.18702%201.92188,-0.20898l2.08398,-1.46484c1.19,-0.652%202.66369,-0.60009%203.80469,0.12891c1.251,0.8%202.21012,1.41455%202.82813,1.81055c0.543,0.348%200.89683,0.92473%200.92383,1.55273c0.154,3.564%20-2.60716,5.00781%20-3.41016,5.00781c-0.556,0%20-7.2403,0.7597%20-14.7793,-6.7793c-7.539,-7.539%20-6.7793,-14.2233%20-6.7793,-14.7793c0,-0.803%201.44381,-3.56416%205.00781,-3.41016z'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="Ikona telefona" />
-              </div>
-              <h3 class="contact-card__title">Telefonski kontakt</h3>
-              <p class="contact-card__text">
-                <a href="tel:+385919577009">+385 91 9577 009</a>
-              </p>
-            </div>
-            
-            <div class="contact-card">
-              <div class="contact-card__icon">
-                <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0,0,256,256'%20width='50px'%20height='50px'%20fill-rule='nonzero'%3e%3cg%20fill='%23ff5757'%20fill-rule='nonzero'%20stroke='none'%20stroke-width='1'%20stroke-linecap='butt'%20stroke-linejoin='miter'%20stroke-miterlimit='10'%20stroke-dasharray=''%20stroke-dashoffset='0'%20font-family='none'%20font-weight='none'%20font-size='none'%20text-anchor='none'%20style='mix-blend-mode:%20normal'%3e%3cg%20transform='scale(5.12,5.12)'%3e%3cpath%20d='M14,4c-5.51133,0%20-10,4.48867%20-10,10v22c0,5.51133%204.48867,10%2010,10h22c5.51133,0%2010,-4.48867%2010,-10v-22c0,-5.51133%20-4.48867,-10%20-10,-10zM13,16h24c0.18,0%200.34977,0.02031%200.50977,0.07031l-9.83008,9.82031c-1.48,1.48%20-3.88914,1.48%20-5.36914,0l-9.82031,-9.82031c0.16,-0.05%200.32977,-0.07031%200.50977,-0.07031zM11.07031,17.49023l7.51953,7.50977l-7.51953,7.50977c-0.05,-0.16%20-0.07031,-0.32977%20-0.07031,-0.50977v-14c0,-0.18%200.02031,-0.34977%200.07031,-0.50977zM38.92969,17.49023c0.05,0.16%200.07031,0.32977%200.07031,0.50977v14c0,0.18%20-0.02031,0.34977%20-0.07031,0.50977l-7.5293,-7.50977zM20,26.41016l0.89063,0.90039c1.13,1.13%202.61961,1.68945%204.09961,1.68945c1.49,0%202.96961,-0.55945%204.09961,-1.68945l0.90039,-0.90039l7.51953,7.51953c-0.16,0.05%20-0.32977,0.07031%20-0.50977,0.07031h-24c-0.18,0%20-0.34977,-0.02031%20-0.50977,-0.07031z'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="Ikona e-maila" />
-              </div>
-              <h3 class="contact-card__title">E-mail</h3>
-              <p class="contact-card__text">
-                <a href="mailto:info@zalagaonicazagreb.hr">info@zalagaonicazagreb.hr</a>
-              </p>
-            </div>
-            
-            <div class="contact-card">
-              <div class="contact-card__icon">
-                <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0,0,256,256'%20width='50px'%20height='50px'%20fill-rule='nonzero'%3e%3cg%20fill='%23ff5757'%20fill-rule='nonzero'%20stroke='none'%20stroke-width='1'%20stroke-linecap='butt'%20stroke-linejoin='miter'%20stroke-miterlimit='10'%20stroke-dasharray=''%20stroke-dashoffset='0'%20font-family='none'%20font-weight='none'%20font-size='none'%20text-anchor='none'%20style='mix-blend-mode:%20normal'%3e%3cg%20transform='scale(5.12,5.12)'%3e%3cpath%20d='M25,2c-12.683,0%20-23,10.317%20-23,23c0,12.683%2010.317,23%2023,23c12.683,0%2023,-10.317%2023,-23c0,-12.683%20-10.317,-23%20-23,-23zM25,28c-0.462,0%20-0.895,-0.113%20-1.286,-0.3l-6.007,6.007c-0.195,0.195%20-0.451,0.293%20-0.707,0.293c-0.256,0%20-0.512,-0.098%20-0.707,-0.293c-0.391,-0.391%20-0.391,-1.023%200,-1.414l6.007,-6.007c-0.187,-0.391%20-0.3,-0.824%20-0.3,-1.286c0,-1.304%200.837,-2.403%202,-2.816v-14.184c0,-0.553%200.447,-1%201,-1c0.553,0%201,0.447%201,1v14.184c1.163,0.413%202,1.512%202,2.816c0,1.657%20-1.343,3%20-3,3z'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="Ikona sata" />
-              </div>
-              <h3 class="contact-card__title">Radno vrijeme</h3>
-              <p class="contact-card__text">
-                Pon - Pet: 09:00 - 20:00<br>
-                Subota: 09:00 - 15:00<br>
-                Nedjelja: ne radimo
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Map and Contact Form Section -->
-      <section class="contact-section">
-        <div class="container">
-          <div class="contact-container">
-            <div class="map-container">
-              <h3 class="contact-subtitle" id="lokacija">Posjetite nas</h3>
-              <p><strong>Isključivo uz unaprijed dogovoren termin</strong></p>
-              <div class="map" id="map">
-                <!-- Map will be loaded here via JavaScript -->
-              </div>
-              <div class="map-info">
-                <p><strong>Parking:</strong> Besplatni parking dostupan</p>
-              </div>
-            </div>
-            
-            <div class="contact-form-container" id="procjena">
-              <h3 class="contact-subtitle">Pošaljite upit</h3>
-              <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                  <label for="name">Ime i prezime *</label>
-                  <input type="text" id="name" name="name" required>
-                  <div class="error-message" id="name-error"></div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="email">E-mail adresa *</label>
-                  <input type="email" id="email" name="email" required>
-                  <div class="error-message" id="email-error"></div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="phone">Telefon</label>
-                  <input type="tel" id="phone" name="phone">
-                </div>
-                
-                <div class="form-group">
-                  <label for="inquiry-type">Vrsta upita *</label>
-                  <select id="inquiry-type" name="inquiry-type" required>
-                    <option value="">Odaberite vrstu upita</option>
-                    <option value="loan">Zalog</option>
-                    <option value="estimate">Otkup</option>
-                    <option value="info">Opći upit</option>
-                  </select>
-                  <div class="error-message" id="inquiry-type-error"></div>
-                </div>
-                
-                <div class="form-group" id="device-details-group" style="display: none;">
-                  <label for="device-details">Detalji o uređaju *</label>
-                  <input type="text" id="device-details" name="device-details" placeholder="Model, starost... obavezno neka cijena koju tražite">
-                  <div class="error-message" id="device-details-error"></div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="message">Poruka *</label>
-                  <textarea id="message" name="message" rows="5" required></textarea>
-                  <div class="error-message" id="message-error"></div>
-                </div>
-                <input type="hidden" name="_honey" value="" style="display:none">
-                <div class="form-group checkbox-group">
-                  <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
-                  <label for="privacy-policy">Slažem se s <a href="#">politikom privatnosti</a> *</label>
-                  <div class="error-message" id="privacy-policy-error"></div>
-                </div>
-                
-                <div class="form-submit">
-                  <button type="submit" class="btn btn--primary btn--block">
-                    <span class="btn-text">Pošalji upit</span>
-                    <span class="btn-loading" style="display: none;">
-                      <span class="loading-spinner"></span> Šalje se...
-                    </span>
-                  </button>
-                </div>
-              </form>
-              
-              <div class="form-success" id="formSuccess" style="display: none;">
-                <div class="success-icon">✓</div>
-                <h3>Hvala na upitu!</h3>
-                <p>Vaša poruka je uspješno poslana. Kontaktirat ćemo vas u najkraćem mogućem roku.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Direct Contact CTA -->
-      <section class="direct-contact">
-        <div class="container">
-          <div class="direct-contact__content">
-            <h2 class="direct-contact__title">Trebate brzu procjenu?</h2>
-            <p class="direct-contact__text">Za hitne upite i procjene, nazovite nas direktno:</p>
-            <a href="tel:+38512345678" class="direct-contact__phone">
-              <!-- <span class="phone-icon"> -->
-                <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0,0,256,256'%20width='50px'%20height='50px'%20fill-rule='nonzero'%3e%3cg%20fill='%23ff5757'%20fill-rule='nonzero'%20stroke='none'%20stroke-width='1'%20stroke-linecap='butt'%20stroke-linejoin='miter'%20stroke-miterlimit='10'%20stroke-dasharray=''%20stroke-dashoffset='0'%20font-family='none'%20font-weight='none'%20font-size='none'%20text-anchor='none'%20style='mix-blend-mode:%20normal'%3e%3cg%20transform='scale(5.12,5.12)'%3e%3cpath%20d='M14,3.99023c-5.51133,0%20-10,4.48867%20-10,10v22c0,5.51133%204.48867,10%2010,10h22c5.51133,0%2010,-4.48867%2010,-10v-22c0,-5.51133%20-4.48867,-10%20-10,-10zM18.00586,12.0332c0.628,0.027%201.20473,0.38083%201.55273,0.92383c0.396,0.618%201.01055,1.57712%201.81055,2.82813c0.73,1.141%200.78091,2.61469%200.12891,3.80469l-1.46484,2.08398c-0.396,0.564%20-0.47498,1.28588%20-0.20898,1.92188c0.414,0.99%201.21658,2.5115%202.64258,3.9375c1.426,1.426%202.9475,2.22858%203.9375,2.64258c0.636,0.266%201.35788,0.18702%201.92188,-0.20898l2.08398,-1.46484c1.19,-0.652%202.66369,-0.60009%203.80469,0.12891c1.251,0.8%202.21012,1.41455%202.82813,1.81055c0.543,0.348%200.89683,0.92473%200.92383,1.55273c0.154,3.564%20-2.60716,5.00781%20-3.41016,5.00781c-0.556,0%20-7.2403,0.7597%20-14.7793,-6.7793c-7.539,-7.539%20-6.7793,-14.2233%20-6.7793,-14.7793c0,-0.803%201.44381,-3.56416%205.00781,-3.41016z'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="Ikona telefona" />
-              <!-- </span> -->
-              <span class="phone-number">  091 9577 009</span>
-            </a>
-            <p class="direct-contact__availability">Dostupni smo svakim radnim danom od 9 do 20h</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__grid">
-          <div class="footer__col">
-            <a href="/" class="logo footer__logo">
-              <span class="logo__text">Zalagaonica <span class="logo__highlight">Arena</span></span>
-            </a>
-            <p class="footer__description">Pružamo brza i sigurna financijska rješenja od 2010. godine.</p>
-          </div>
-          
-          <div class="footer__col">
-            <h4 class="footer__heading">Navigacija</h4>
-            <ul class="footer__links">
-              <li><a href="/">Početna</a></li>
-              <li><a href="/usluge.html">Usluge zalagaonice</a></li>
-              <li><a href="/kontakt.html">Kontakt i lokacija u Zagrebu</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer__col">
-            <h4 class="footer__heading">Kontakt</h4>
-            <ul class="footer__contact">
-              <li>Tel:<a href="tel:+385919577009"> +385 91 9577 009</a></li>
-              <li>E-mail:<a href="mailto:info@zalagaonicazagreb.hr"> info@zalagaonicazagreb.hr</a></li>
-              <li>Adresa: Arena Zagreb - Novi Zagreb<br>– isključivo po prethodnom dogovoru</li>
-            </ul>
-          </div>
-          
-          <div class="footer__col">
-            <h4 class="footer__heading">Radno vrijeme</h4>
-            <ul class="footer__hours">
-              <li><span>Pon - Pet:</span> 09:00 - 20:00</li>
-              <li><span>Subota:</span> 09:00 - 15:00</li>
-              <li><span>Nedjelja:</span> ne radimo</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="footer__bottom">
-          <p class="footer__copyright">&copy; 2025 Zalagaonica Arena. Sva prava pridržana.</p>
-          <div class="footer__social">
-            <a href="#" aria-label="Facebook"><img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%3e%3cpath%20d='M20%2010C20%204.48%2015.52%200%2010%200C4.48%200%200%204.48%200%2010C0%2014.84%203.44%2018.87%208%2019.8V13H6V10H8V7.5C8%205.57%209.57%204%2011.5%204H14V7H12C11.45%207%2011%207.45%2011%208V10H14V13H11V19.95C16.05%2019.45%2020%2015.19%2020%2010Z'%20fill='white'/%3e%3c/svg%3e" alt="Facebook" /></a>
-            <a href="#" aria-label="Instagram"><img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%3e%3cpath%20d='M10%201.8C12.67%201.8%2013%201.8%2014.07%201.8C16.97%201.8%2018.2%203.13%2018.2%205.93C18.2%207%2018.2%207.33%2018.2%2010C18.2%2012.67%2018.2%2013%2018.2%2014.07C18.2%2016.87%2016.87%2018.2%2014.07%2018.2C13%2018.2%2012.67%2018.2%2010%2018.2C7.33%2018.2%207%2018.2%205.93%2018.2C3.13%2018.2%201.8%2016.87%201.8%2014.07C1.8%2013%201.8%2012.67%201.8%2010C1.8%207.33%201.8%207%201.8%205.93C1.8%203.13%203.13%201.8%205.93%201.8C7%201.8%207.33%201.8%2010%201.8ZM10%200C7.33%200%207%200%205.93%200C2.27%200%200%202.27%200%205.93C0%207%200%207.33%200%2010C0%2012.67%200%2013%200%2014.07C0%2017.73%202.27%2020%205.93%2020C7%2020%207.33%2020%2010%2020C12.67%2020%2013%2020%2014.07%2020C17.73%2020%2020%2017.73%2020%2014.07C20%2013%2020%2012.67%2020%2010C20%207.33%2020%207%2020%205.93C20%202.27%2017.73%200%2014.07%200C13%200%2012.67%200%2010%200ZM10%204.87C7.33%204.87%205.13%207.07%205.13%209.73C5.13%2012.4%207.33%2014.6%2010%2014.6C12.67%2014.6%2014.87%2012.4%2014.87%209.73C14.87%207.07%2012.67%204.87%2010%204.87ZM10%2013.33C8.07%2013.33%206.4%2011.67%206.4%209.73C6.4%207.8%208.07%206.13%2010%206.13C11.93%206.13%2013.6%207.8%2013.6%209.73C13.6%2011.67%2011.93%2013.33%2010%2013.33ZM14.93%203.6C14.3%203.6%2013.8%204.1%2013.8%204.73C13.8%205.37%2014.3%205.87%2014.93%205.87C15.57%205.87%2016.07%205.37%2016.07%204.73C16.07%204.1%2015.57%203.6%2014.93%203.6Z'%20fill='white'/%3e%3c/svg%3e" alt="Instagram" /></a>
-          </div>
+        <div>
+          <h4>Kontakt</h4>
+          <p>Vice Vukova 6<br>10000 Zagreb</p>
+          <p>Tel: <a href="tel:+385919577009">+385 91 9577 009</a><br>E-mail: <a href="mailto:info@zalagaonicazagreb.hr">info@zalagaonicazagreb.hr</a></p>
         </div>
       </div>
-    </footer>
+      <div class="footer__bottom">© 2024 Zalagaonica Arena Zagreb.</div>
+    </div>
+  </footer>
 
-    <button class="back-to-top" id="backToTop" aria-label="Povratak na vrh stranice">
-      <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='currentColor'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3e%3cpath%20d='M12%2019V5M5%2012L12%205L19%2012'%20stroke='white'/%3e%3c/svg%3e" alt="Strelica gore" />
-    </button>
-  <script>
-  !function(){
-    var fired = false, firedKey = "ads_conv_fired";
-    // spriječi duplo okidanje pri povratku na stranicu
-    if (sessionStorage.getItem(firedKey)) { return; }
-
-    function okini(v){
-      if (fired) return;
-      fired = true;
-      try {
-        if (typeof gtag === "function") {
-          gtag('event','conversion',{
-            'send_to':'AW-17523602012/WC4ICOriypIbENzk86NB',
-            'value': v || 0.5,
-            'currency':'EUR'
-          });
-          sessionStorage.setItem(firedKey, "1");
-        }
-      } catch(e){}
-    }
-
-    function start(){
-      var el = document.getElementById('formSuccess');
-      if (!el) return;
-      // ako je već vidljivo (npr. nakon redirecta ili validacije)
-      var s = getComputedStyle(el);
-      if (s.display!=='none' && s.visibility!=='hidden') { okini(); return; }
-      // promatraj promjene stila/klase
-      var mo = new MutationObserver(function(){
-        var s2 = getComputedStyle(el);
-        if (s2.display!=='none' && s2.visibility!=='hidden'){ okini(); mo.disconnect(); }
-      });
-      mo.observe(el,{attributes:true,attributeFilter:['style','class']});
-    }
-
-    // počni kad je DOM spreman (ili odmah ako već jest)
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', start, {once:true, passive:true});
-    } else { start(); }
-  }();
-  </script>
-  <script>
-!function(){
-  // --- POSTAVKE: zamijeni ove vrijednosti svojim labelima iz Google Ads-a ---
-  var SEND_TO_PHONE = 'AW-17523602012/okKuCKily58bENzk86NB';
-  var SEND_TO_EMAIL = 'AW-17523602012/kHszCIfl2Z8bENzk86NB';
-  var DEFAULT_VALUE = 0.5; // možeš staviti različite vrijednosti ako želiš
-
-  function fireConv(sendTo, value){
-    try{
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-          'send_to': sendTo,
-          'value': value,
-          'currency': 'EUR'
-        });
-      }
-    }catch(e){}
-  }
-
-  // helper da spriječi duple hitove u istoj sesiji za isti link
-  function oncePerSession(key, fn){
-    try{
-      if (sessionStorage.getItem(key)) return;
-      sessionStorage.setItem(key, '1');
-    }catch(e){}
-    fn();
-  }
-
-  function handleClick(e){
-    var a = e.target.closest && e.target.closest('a');
-    if (!a || !a.href) return;
-
-    // a) tel:
-    if (a.href.startsWith('tel:')) {
-      var key = 'conv_tel_' + a.href;
-      oncePerSession(key, function(){
-        fireConv(SEND_TO_PHONE, DEFAULT_VALUE);
-      });
-      return;
-    }
-    // b) mailto:
-    if (a.href.startsWith('mailto:')) {
-      var key2 = 'conv_mail_' + a.href;
-      oncePerSession(key2, function(){
-        fireConv(SEND_TO_EMAIL, DEFAULT_VALUE);
-      });
-      return;
-    }
-  }
-
-  // delegirani listener (radi i za linkove dodane dinamički)
-  document.addEventListener('click', handleClick, {passive:true});
-
-  // bonus: keyboard “Enter” na fokusiranom linku
-  document.addEventListener('keydown', function(e){
-    if (e.key !== 'Enter') return;
-    var a = document.activeElement;
-    if (!a || a.tagName !== 'A' || !a.href) return;
-    if (a.href.startsWith('tel:')) {
-      oncePerSession('conv_tel_' + a.href, function(){ fireConv(SEND_TO_PHONE, DEFAULT_VALUE); });
-    } else if (a.href.startsWith('mailto:')) {
-      oncePerSession('conv_mail_' + a.href, function(){ fireConv(SEND_TO_EMAIL, DEFAULT_VALUE); });
-    }
-  }, {passive:true});
-}();
-</script>
-
-  </body>
+  <button id="backToTop" aria-label="Natrag na vrh">↑</button>
+  <script src="/assets/script.js" defer></script>
+</body>
 </html>
-
