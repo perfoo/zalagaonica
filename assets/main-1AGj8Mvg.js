@@ -62,20 +62,11 @@
     const form = $('#contactForm');
     if (!form) return;
 
-    // Init EmailJS (CSP-friendly, bez inline ovisnosti)
-    if (window.emailjs && typeof emailjs.init === 'function') {
-      try { emailjs.init('83NbuRhmZxR_bc18Z'); } catch (e) {}
-    }
-
-    // Nabavi SERVICE/TEMPLATE ID iz više mogućih izvora (bez mijenjanja HTML-a):
-    const hiddenService  = form.querySelector('input[name="service_id"]')?.value || '';
-    const hiddenTemplate = form.querySelector('input[name="template_id"]')?.value || '';
-    const SERVICE_ID  = form.dataset.service || window.EMAILJS_SERVICE_ID  || hiddenService  || '';
-    const TEMPLATE_ID = form.dataset.template || window.EMAILJS_TEMPLATE_ID || hiddenTemplate || '';
-
     const submitBtn  = form.querySelector('button[type="submit"]');
     const successBox = $('#formSuccess');
     const honey      = form.querySelector('input[name="_honey"]');
+    const btnText    = submitBtn?.querySelector('.btn-text');
+    const btnLoading = submitBtn?.querySelector('.btn-loading');
 
     // UX: prikaži/skrivaj detalje ovisno o vrsti upita
     (function toggleDeviceDetails() {
@@ -87,7 +78,35 @@
       apply();
     })();
 
-    const setLoading = on => { if (submitBtn) submitBtn.disabled = !!on; };
+    const setLoading = on => {
+      if (submitBtn) submitBtn.disabled = !!on;
+      if (btnText) btnText.style.display = on ? 'none' : '';
+      if (btnLoading) btnLoading.style.display = on ? 'inline-flex' : 'none';
+    };
+
+    const toggleSuccess = show => {
+      if (successBox) {
+        successBox.style.display = show ? 'block' : 'none';
+        if (show) successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
+
+    const buildMailtoFallback = () => {
+      const name = $('#name')?.value || '';
+      const email = $('#email')?.value || '';
+      const phone = $('#phone')?.value || '';
+      const type  = $('#inquiry-type')?.value || '';
+      const dev   = $('#device-details')?.value || '';
+      const msg   = $('#message')?.value || '';
+
+      const suffix = type === 'loan' ? '-zalog' : type === 'estimate' ? '-otkup' : '-opcenito';
+      const subject = encodeURIComponent('Web upit ' + suffix);
+      const body = encodeURIComponent(
+        `Ime i prezime: ${name}\nEmail: ${email}\nTelefon: ${phone}\nVrsta upita: ${type || 'N/A'}\nDetalji uređaja: ${dev}\n\nPoruka:\n${msg}`
+      );
+
+      return `mailto:info@zalagaonicazagreb.hr?subject=${subject}&body=${body}`;
+    };
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -103,36 +122,31 @@
       }
       const t = $('#inquiry-type'), d = $('#device-details');
       if ((t && (t.value === 'loan' || t.value === 'estimate')) && (!d || !d.value.trim())) { d && d.focus(); return; }
+      const privacy = $('#privacy-policy');
+      if (privacy && !privacy.checked) { privacy.focus(); return; }
 
-      // Ako imamo EmailJS + ID-eve → šalji preko EmailJS
-      const canSendViaEmailJS = window.emailjs && typeof emailjs.sendForm === 'function' && SERVICE_ID && TEMPLATE_ID;
+      const formData = new FormData(form);
+      const fallbackHref = buildMailtoFallback();
 
       try {
         setLoading(true);
 
-        if (canSendViaEmailJS) {
-          await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form);
-          successBox && (successBox.style.display = 'block');
-          form.reset();
-        } else {
-          // Fallback: mailto (ne traži izmjene HTML-a)
-          const to = 'info@zalagaonicazagreb.hr';
-          const name = $('#name')?.value || '';
-          const email = $('#email')?.value || '';
-          const phone = $('#phone')?.value || '';
-          const type  = $('#inquiry-type')?.value || '';
-          const dev   = $('#device-details')?.value || '';
-          const msg   = $('#message')?.value || '';
+        const response = await fetch('/mail.php', { method: 'POST', body: formData });
+        const data = await response.json().catch(() => ({}));
 
-          const subject = encodeURIComponent('Upit s weba - ' + (type || 'Kontakt'));
-          const body = encodeURIComponent(
-            `Ime i prezime: ${name}\nEmail: ${email}\nTelefon: ${phone}\nVrsta upita: ${type}\nDetalji uređaja: ${dev}\n\nPoruka:\n${msg}`
-          );
-          window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+        if (response.ok && data?.success) {
+          toggleSuccess(true);
+          form.reset();
+          const group = $('#device-details-group');
+          if (group && group.style) group.style.display = 'none';
+          return;
         }
+
+        throw new Error(data?.error || 'Slanje nije uspjelo');
       } catch (err) {
         console.error('Slanje greška:', err);
-        alert('Greška pri slanju. Pokušajte ponovno ili nas nazovite.');
+        alert('Slanje nije uspjelo, otvaram mail klijent.');
+        window.location.href = fallbackHref;
       } finally {
         setLoading(false);
       }
