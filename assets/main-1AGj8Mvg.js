@@ -141,8 +141,9 @@
           if (group && group.style) group.style.display = 'none';
           return;
         }
-
-        throw new Error(data?.error || 'Slanje nije uspjelo');
+        const errorMsg = data?.error || 'Slanje nije uspjelo. Pokušajte ponovno.';
+        alert(errorMsg);
+        return;
       } catch (err) {
         console.error('Slanje greška:', err);
         alert('Slanje nije uspjelo, otvaram mail klijent.');
