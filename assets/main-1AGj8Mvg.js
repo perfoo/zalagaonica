@@ -139,6 +139,24 @@
     });
   }
 
+  // ---------- FAQ accordion ----------
+  function initAccordion() {
+    const accordions = $$('.accordion');
+    if (!accordions.length) return;
+
+    accordions.forEach(accordion => {
+      const headers = $$('.accordion-header', accordion);
+      headers.forEach(header => {
+        header.addEventListener('click', () => {
+          const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+          headers.forEach(h => h.setAttribute('aria-expanded', 'false'));
+          header.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        });
+      });
+    });
+  }
+
   // ---------- Init ----------
   document.addEventListener('DOMContentLoaded', function () {
     initHeaderScroll();
@@ -147,5 +165,6 @@
     initSmoothAnchors();
     initMapEmbed();     // samo ako postoji #map
     initContactForm();  // samo ako postoji #contactForm
+    initAccordion();    // samo ako postoji .accordion
   });
 })();
