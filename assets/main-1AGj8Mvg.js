@@ -172,6 +172,90 @@
     });
   }
 
+  // ---------- Premium CTA system ----------
+  const CONTACT_PHONE_E164 = '+385919577009';
+  const CONTACT_PHONE_DIGITS = '385919577009';
+  const DEFAULT_MESSAGE = 'Pozdrav, želim procjenu predmeta. Mogu poslati model, stanje i fotografije.';
+  const WHATSAPP_URL = 'https://wa.me/' + CONTACT_PHONE_DIGITS + '?text=' + encodeURIComponent(DEFAULT_MESSAGE);
+  const SMS_URL = 'sms:' + CONTACT_PHONE_E164 + '?body=' + encodeURIComponent(DEFAULT_MESSAGE);
+  function fireConversion(sendTo, value) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: sendTo,
+          value: value || 0.5,
+          currency: 'EUR'
+        });
+      }
+    } catch (err) {}
+  }
+
+  function oncePerSession(key, fn) {
+    try {
+      if (window.sessionStorage.getItem(key)) return;
+      window.sessionStorage.setItem(key, '1');
+    } catch (err) {}
+    fn();
+  }
+
+  function initConversionLinks() {
+    document.addEventListener('click', function (event) {
+      const link = event.target.closest && event.target.closest('a');
+      if (!link || !link.href) return;
+
+      if (link.href.indexOf('https://wa.me/') === 0) {
+        oncePerSession('conv_whatsapp', function () {
+          fireConversion('AW-17523602012/okKuCKily58bENzk86NB');
+        });
+      }
+
+      if (link.href.indexOf('sms:') === 0) {
+        oncePerSession('conv_sms', function () {
+          fireConversion('AW-17523602012/okKuCKily58bENzk86NB');
+        });
+      }
+    }, { passive: true });
+  }
+
+  function initStickyMobileCta() {
+    if (document.querySelector('.mobile-cta-bar')) return;
+
+    const bar = document.createElement('nav');
+    bar.className = 'mobile-cta-bar';
+    bar.setAttribute('aria-label', 'Brzi kontakt');
+    bar.innerHTML =
+      '<a class="mobile-cta-bar__item mobile-cta-bar__item--whatsapp" href="' + WHATSAPP_URL + '" target="_blank" rel="noopener" aria-label="Pošalji WhatsApp poruku">WhatsApp</a>' +
+      '<a class="mobile-cta-bar__item mobile-cta-bar__item--sms" href="' + SMS_URL + '" aria-label="Pošalji SMS poruku">SMS</a>';
+
+    document.body.appendChild(bar);
+
+    const hero = document.querySelector('.hero');
+    const mobileQuery = window.matchMedia('(max-width: 767px)');
+    const updateVisibility = () => {
+      if (!mobileQuery.matches) {
+        bar.classList.remove('is-visible');
+        return;
+      }
+
+      if (!hero) {
+        bar.classList.add('is-visible');
+        return;
+      }
+      const rect = hero.getBoundingClientRect();
+      const heroVisible = rect.bottom > (window.innerHeight * 0.72) && rect.top < window.innerHeight;
+      bar.classList.toggle('is-visible', !heroVisible);
+    };
+
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility, { passive: true });
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener('change', updateVisibility);
+    } else {
+      mobileQuery.addListener(updateVisibility);
+    }
+    updateVisibility();
+  }
+
   // ---------- Init ----------
   document.addEventListener('DOMContentLoaded', function () {
     initHeaderScroll();
@@ -181,5 +265,7 @@
     initMapEmbed();     // samo ako postoji #map
     initContactForm();  // samo ako postoji #contactForm
     initAccordion();    // samo ako postoji .accordion
+    initConversionLinks();
+    initStickyMobileCta();
   });
 })();

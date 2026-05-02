@@ -1,4 +1,18 @@
 # ----------------------------------------------------------------------
+# Clean URLs
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Omoguci /naziv-stranice/ za staticke .html stranice, bez diranja
+  # postojecih .html URL-ova, PHP form handlera i asseta.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^([A-Za-z0-9-]+)/?$ $1.html [L]
+</IfModule>
+
+# ----------------------------------------------------------------------
 # Kompresija (Gzip / Brotli)
 # ----------------------------------------------------------------------
 <IfModule mod_deflate.c>
@@ -16,15 +30,11 @@
 </IfModule>
 
 # ----------------------------------------------------------------------
-# Cache-Control (1 godina za statičke resurse)
+# Cache-Control
 # ----------------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
-
-  # Default
   ExpiresDefault "access plus 1 month"
-
-  # CSS, JS, Fonts, Images – 1 godina
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType application/x-javascript "access plus 1 year"
@@ -47,24 +57,9 @@
 # Security Headers
 # ----------------------------------------------------------------------
 <IfModule mod_headers.c>
-  # Sprečava embedding u iframe (clickjacking protection)
   Header always set X-Frame-Options "SAMEORIGIN"
-
-  # Sprečava XSS napade u starijim browserima
   Header set X-XSS-Protection "1; mode=block"
-
-  # Sprečava MIME sniffing
   Header set X-Content-Type-Options "nosniff"
-
-  # Strict Transport Security (HSTS) – radi samo ako koristiš HTTPS
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-
-  # Content Security Policy (light verzija)
-
-
-<# Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://maps.google.com https://www.google.hr;"
- #>
-Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://maps.google.com https://www.google.hr; connect-src 'self' https://api.emailjs.com;"
-
-
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://maps.google.com https://www.google.hr; connect-src 'self' https://api.emailjs.com;"
 </IfModule>
