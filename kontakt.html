@@ -529,7 +529,7 @@ body {
             </div>
             <div class="contact-form-container" id="procjena">
               <h2 class="contact-subtitle">Pošaljite upit za procjenu</h2>
-              <form class="contact-form" id="contactForm">
+              <form class="contact-form" id="contactForm" action="/mail.php" method="post" accept-charset="UTF-8">
                 <div class="form-group"><label for="name">Ime i prezime *</label><input type="text" id="name" name="name" required><div class="error-message" id="name-error"></div></div>
                 <div class="form-group"><label for="email">E-mail adresa *</label><input type="email" id="email" name="email" required><div class="error-message" id="email-error"></div></div>
                 <div class="form-group"><label for="phone">Telefon</label><input type="tel" id="phone" name="phone"></div>

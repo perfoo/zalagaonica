@@ -5,6 +5,7 @@
 // - Returns JSON responses suitable for AJAX submissions
 
 header('Content-Type: application/json; charset=UTF-8');
+header('Cache-Control: no-store');
 
 $allowedHosts = ['zalagaonicazagreb.hr', 'www.zalagaonicazagreb.hr'];
 $host = $_SERVER['HTTP_HOST'] ?? '';
@@ -87,7 +88,15 @@ switch (strtolower($type)) {
         break;
 }
 
+// Header values must never contain newlines.
+$cleanHeaderValue = static function (string $value): string {
+    return trim(str_replace(["\r", "\n"], ' ', $value));
+};
+
 $subject = 'Web upit - ' . $typeLabel;
+$safeName = $cleanHeaderValue($name);
+$safeEmail = $cleanHeaderValue($email);
+$safeSubject = $cleanHeaderValue($subject);
 
 $bodyLines = [
     'Ime i prezime: ' . $name,
@@ -107,13 +116,22 @@ $bodyLines[] = $message;
 $body = implode("\n", $bodyLines);
 
 $to = 'info@zalagaonicazagreb.hr';
+$fromEmail = 'info@zalagaonicazagreb.hr';
+$fromName = 'Zalagaonica Arena Zagreb';
 $headers = [
-    'From: info@zalagaonicazagreb.hr',
-    'Reply-To: ' . $email,
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=UTF-8',
+    'Content-Transfer-Encoding: 8bit',
+    'From: ' . $fromName . ' <' . $fromEmail . '>',
+    'Sender: ' . $fromEmail,
+    'Reply-To: ' . $safeName . ' <' . $safeEmail . '>',
+    'Return-Path: ' . $fromEmail,
     'X-Mailer: PHP/' . PHP_VERSION,
 ];
 
-$sent = mail($to, $subject, $body, implode("\r\n", $headers));
+// The envelope sender improves deliverability on shared hosting because SPF/DMARC
+// checks see mail coming from the same domain as the visible From address.
+$sent = @mail($to, $safeSubject, $body, implode("\r\n", $headers), '-f' . $fromEmail);
 
 if ($sent) {
     echo json_encode(['success' => true, 'message' => 'Poruka je poslana.']);
