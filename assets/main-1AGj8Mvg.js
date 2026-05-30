@@ -175,7 +175,7 @@
   // ---------- Premium CTA system ----------
   const CONTACT_PHONE_E164 = '+385919577009';
   const CONTACT_PHONE_DIGITS = '385919577009';
-  const DEFAULT_MESSAGE = 'Pozdrav, želim procjenu predmeta. Mogu poslati model, stanje i fotografije.';
+  const DEFAULT_MESSAGE = 'Pozdrav, želim prodati/založiti predmet.\n\nModel: \nStarost (datum na računu): \nTražena cijena: ';
   const WHATSAPP_URL = 'https://wa.me/' + CONTACT_PHONE_DIGITS + '?text=' + encodeURIComponent(DEFAULT_MESSAGE);
   const SMS_URL = 'sms:' + CONTACT_PHONE_E164 + '?body=' + encodeURIComponent(DEFAULT_MESSAGE);
   function fireConversion(sendTo, value) {
