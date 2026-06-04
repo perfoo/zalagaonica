@@ -256,6 +256,13 @@
     updateVisibility();
   }
 
+  // ---------- Footer year auto-update ----------
+  function initFooterYear() {
+    const el = document.getElementById('footer-year');
+    if (!el) return;
+    el.textContent = String(new Date().getFullYear());
+  }
+
   // ---------- Init ----------
   document.addEventListener('DOMContentLoaded', function () {
     initHeaderScroll();
@@ -267,5 +274,6 @@
     initAccordion();    // samo ako postoji .accordion
     initConversionLinks();
     initStickyMobileCta();
+    initFooterYear();
   });
 })();
