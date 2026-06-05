@@ -135,6 +135,7 @@
         const data = await response.json().catch(() => ({}));
 
         if (response.ok && data?.success) {
+          fireConversion(CONV_FORM, 1.0);
           toggleSuccess(true);
           form.reset();
           const group = $('#device-details-group');
@@ -178,6 +179,13 @@
   const DEFAULT_MESSAGE = 'Pozdrav, želim prodati/založiti predmet.\n\nModel: \nStarost (datum na računu): \nTražena cijena: ';
   const WHATSAPP_URL = 'https://wa.me/' + CONTACT_PHONE_DIGITS + '?text=' + encodeURIComponent(DEFAULT_MESSAGE);
   const SMS_URL = 'sms:' + CONTACT_PHONE_E164 + '?body=' + encodeURIComponent(DEFAULT_MESSAGE);
+
+  // ---------- Conversion labels (Google Ads) ----------
+  const CONV_WHATSAPP  = 'AW-17523602012/1LEOCI6bv7kcENzk86NB';
+  const CONV_SMS       = 'AW-17523602012/c5u7CI-uv7kcENzk86NB';
+  const CONV_PHONE     = 'AW-17523602012/okKuCKily58bENzk86NB';
+  const CONV_FORM      = 'AW-17523602012/WC4ICOriypIbENzk86NB';
+
   function fireConversion(sendTo, value) {
     try {
       if (typeof window.gtag === 'function') {
@@ -205,13 +213,19 @@
 
       if (link.href.indexOf('https://wa.me/') === 0) {
         oncePerSession('conv_whatsapp', function () {
-          fireConversion('AW-17523602012/okKuCKily58bENzk86NB');
+          fireConversion(CONV_WHATSAPP, 0.5);
         });
       }
 
       if (link.href.indexOf('sms:') === 0) {
         oncePerSession('conv_sms', function () {
-          fireConversion('AW-17523602012/okKuCKily58bENzk86NB');
+          fireConversion(CONV_SMS, 0.4);
+        });
+      }
+
+      if (link.href.indexOf('tel:') === 0) {
+        oncePerSession('conv_phone', function () {
+          fireConversion(CONV_PHONE, 0.5);
         });
       }
     }, { passive: true });
